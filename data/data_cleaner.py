@@ -4,13 +4,20 @@ import pandas as pd
 
 # Load the Excel file
 data_filepath = Path(__file__).parent.absolute()
-data_records_filepath = data_filepath / 'old_data_records.xls'
+data_records_filepath = data_filepath / 'data_records.xls'
 
 # Define the names of sheets to be processed
 sheets_to_process = ['Organizations','Programs']
 
 # Load the Excel file
 xls = pd.ExcelFile(data_records_filepath, engine='openpyxl')
+
+def date_to_percentage(date):
+    if isinstance(date, pd.Timestamp):  # Check if it's a pandas Timestamp object
+        # Convert date to '1-19%' format
+        month_day = date.strftime('%m-%d')  # Get 'mm-dd'
+        return month_day.replace('-', '-') + '%'  # Append '%'
+    return date
 
 
 
@@ -30,7 +37,8 @@ with pd.ExcelWriter('data/modified_file.xlsx', engine='openpyxl') as writer:
                 if df[column].dtype == 'object':  # Check if the column is of string type
                     df[column] = df[column].apply(lambda x: x.replace(",", ", ") if isinstance(x, str) else x)
                 
-                    df[column] = df[column].apply(lambda x: x.replace('1-19', '1-19%')if isinstance(x, str) else x)
+                    # Apply date to percentage transformation
+                    df[column] = df[column].apply(date_to_percentage)
                     
                     df[column] = df[column].apply(lambda x: x.replace('20-39', '20-39%')if isinstance(x, str) else x)
                     
