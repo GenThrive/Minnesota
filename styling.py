@@ -2,7 +2,7 @@
 # PAGE SETTINGS
 # ----------------------------------------------------------------------------
 app_title = 'Minnesota Dashboard - 2024'
-page_title = 'Minnsota Dashboard 2024'
+page_title = 'Minnesota Dashboard 2024'
 sub_title = 'Filter on'
 filter_category_1 = 'Organization Data'
 filter_category_2 = 'Program Data'
