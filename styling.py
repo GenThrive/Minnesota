@@ -1,8 +1,8 @@
 # ----------------------------------------------------------------------------
 # PAGE SETTINGS
 # ----------------------------------------------------------------------------
-app_title = 'Minnesota Dashboard - 2024'
-page_title = 'Minnesota Dashboard 2024'
+app_title = 'Minnesota Environmental Education Directory'
+page_title = 'Minnesota Environmental Education Directory'
 sub_title = 'Filter on'
 filter_category_1 = 'Organization Data'
 filter_category_2 = 'Program Data'
